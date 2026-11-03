@@ -27,9 +27,15 @@ jobs:
           channel: stable
 
       - name: Criar estrutura Android
-        run: flutter create --platforms=android .
+        run: flutter create --platforms=android --project-name=marido_de_aluguel --org=com.maridodealuguel .
+
+     - name: Conferir arquivos Android
+        run:  ls -la android
+          ls -la android/app
+          find android -maxdepth 3 -type f
+          
      
-      - name: Limpar arquivos antigos
+    - name: Limpar arquivos antigos
         run: flutter clean
       
       - name: Verificar estrutura Android
