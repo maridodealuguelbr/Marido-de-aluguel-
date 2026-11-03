@@ -29,16 +29,7 @@ jobs:
       - name: Criar estrutura Android
         run: flutter create --platforms=android --project-name=marido_de_aluguel --org=com.maridodealuguel .
 
-      - name: Conferir arquivos Android
-        run: |
-          ls -la android
-          ls -la android/app
-          find android -maxdepth 3 -type f
-
-      - name: Limpar arquivos antigos
-        run: flutter clean
-
-      - name: Verificar estrutura Android
+      - name: Conferir estrutura Android
         run: |
           ls -la android/app
           test -f android/app/build.gradle || test -f android/app/build.gradle.kts
@@ -49,9 +40,8 @@ jobs:
       - name: Gerar APK
         run: flutter build apk --release
 
-      - name: Salvar APK
+      - name: Disponibilizar APK
         uses: actions/upload-artifact@v4
         with:
           name: marido-de-aluguel-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-          
