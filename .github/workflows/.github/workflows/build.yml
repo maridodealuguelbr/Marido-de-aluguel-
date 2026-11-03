@@ -27,7 +27,8 @@ jobs:
           channel: stable
 
       - name: Criar estrutura Android
-        run: flutter create . --platforms android
+      - name: Limpar arquivos antigos
+        run: flutter clean  run: flutter create . --platforms android
 
       - name: Instalar dependencias
         run: flutter pub get
