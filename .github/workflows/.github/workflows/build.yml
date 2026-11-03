@@ -28,14 +28,14 @@ jobs:
 
       - name: Criar estrutura Android
         run: flutter create --platforms=android .
-
+     
+      - name: Limpar arquivos antigos
+        run: flutter clean
+      
       - name: Verificar estrutura Android
         run: |
           ls -la android/app
           test -f android/app/build.gradle || test -f android/app/build.gradle.kts
-
-      - name: Limpar arquivos antigos
-        run: flutter clean
 
       - name: Instalar dependencias
         run: flutter pub get
